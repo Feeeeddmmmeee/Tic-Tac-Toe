@@ -6,6 +6,8 @@
 
 ## Screenshots
 - Menu:
+
 ![alt text](https://media.discordapp.net/attachments/764445839955329034/816997197735526410/unknown.png)
 - Actual game:
+
 ![text](https://media.discordapp.net/attachments/764445839955329034/816996934337298433/unknown.png)
