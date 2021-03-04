@@ -1,4 +1,3 @@
-## Hey guys it's me again!
 
 - This is my first bigger c++ project which i tried to code without Stack Overflow.
 - It comes with 2 modes which are a local multiplayer (for two players) mode and a singleplayer mode (with "AI")
