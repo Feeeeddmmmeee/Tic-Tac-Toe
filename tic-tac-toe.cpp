@@ -4,25 +4,22 @@
 
 using namespace std;
 
-char grid[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-char gridTemplate[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-char player1, player2;
-bool notChosen = true;
-int randomGridNum, immediateWin;
+static char grid[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+static char gridTemplate[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+static char player1, player2;
 
-
-int getAiGrid(){
+static int getAiGrid(){
 
     srand(time(NULL));
-    immediateWin = rand()%99+1;
+    int immediateWin = rand()%99+1;
 
     if(immediateWin < 20){
 
-        notChosen = true;
+        bool notChosen = true;
         while(notChosen){
 
             srand(time(NULL));
-            randomGridNum = rand()%10;
+            int randomGridNum = rand()%10;
 
             if(grid[randomGridNum] != player1 && grid[randomGridNum] != player2){
 
@@ -32,86 +29,87 @@ int getAiGrid(){
         }
     }
     else{
+        int randomGridNum;
         
-        if(grid[0] == player1 && grid[1] == player1 && grid[2] != player2){
+        if(grid[0] == player1 && grid[1] == player1 && grid[2] != player2 && grid[randomGridNum] != player1){
             return 2;
         }
-        else if(grid[0] == player1 && grid[2] == player1 && grid[1] != player2){ 
+        else if(grid[0] == player1 && grid[2] == player1 && grid[1] != player2 && grid[randomGridNum] != player1){ 
             return 1;
         }
-        else if(grid[1] == player1 && grid[2] == player1 && grid[0] != player2){
+        else if(grid[1] == player1 && grid[2] == player1 && grid[0] != player2 && grid[randomGridNum] != player1){
             return 0;
         }
-        else if(grid[3] == player1 && grid[4] == player1 && grid[5] != player2){
+        else if(grid[3] == player1 && grid[4] == player1 && grid[5] != player2 && grid[randomGridNum] != player1){
             return 5;
         }
-        else if(grid[4] == player1 && grid[5] == player1 && grid[3] != player2){
+        else if(grid[4] == player1 && grid[5] == player1 && grid[3] != player2 && grid[randomGridNum] != player1){
             return 3;
         }
-        else if(grid[3] == player1 && grid[5] == player1 && grid[4] != player2){
+        else if(grid[3] == player1 && grid[5] == player1 && grid[4] != player2 && grid[randomGridNum] != player1){
             return 4;
         }
-        else if(grid[6] == player1 && grid[7] == player1 && grid[8] != player2){
+        else if(grid[6] == player1 && grid[7] == player1 && grid[8] != player2 && grid[randomGridNum] != player1){
             return 8;
         }
-        else if(grid[8] == player1 && grid[7] == player1 && grid[6] != player2){
+        else if(grid[8] == player1 && grid[7] == player1 && grid[6] != player2 && grid[randomGridNum] != player1){
             return 6;
         }
-        else if(grid[6] == player1 && grid[8] == player1 && grid[7] != player2){
+        else if(grid[6] == player1 && grid[8] == player1 && grid[7] != player2 && grid[randomGridNum] != player1){
             return 7;
         }
-        else if(grid[0] == player1 && grid[3] == player1 && grid[6] != player2){
+        else if(grid[0] == player1 && grid[3] == player1 && grid[6] != player2 && grid[randomGridNum] != player1){
             return 6;
         }
-        else if(grid[0] == player1 && grid[6] == player1 && grid[3] != player2){
+        else if(grid[0] == player1 && grid[6] == player1 && grid[3] != player2 && grid[randomGridNum] != player1){
             return 3;
         }
-        else if(grid[3] == player1 && grid[6] == player1 && grid[0] != player2){
+        else if(grid[3] == player1 && grid[6] == player1 && grid[0] != player2 && grid[randomGridNum] != player1){
             return 0;
         }
-        else if(grid[1] == player1 && grid[4] == player1 && grid[7] != player2){
+        else if(grid[1] == player1 && grid[4] == player1 && grid[7] != player2 && grid[randomGridNum] != player1){
             return 7;
         }
-        else if(grid[1] == player1 && grid[7] == player1 && grid[4] != player2){
+        else if(grid[1] == player1 && grid[7] == player1 && grid[4] != player2 && grid[randomGridNum] != player1){
             return 4;
         }
-        else if(grid[4] == player1 && grid[7] == player1 && grid[1] != player2){
+        else if(grid[4] == player1 && grid[7] == player1 && grid[1] != player2 && grid[randomGridNum] != player1){
             return 1;
         }
-        else if(grid[2] == player1 && grid[5] == player1 && grid[8] != player2){
+        else if(grid[2] == player1 && grid[5] == player1 && grid[8] != player2 && grid[randomGridNum] != player1){
             return 8;
         }
-        else if(grid[5] == player1 && grid[8] == player1 && grid[2] != player2){
+        else if(grid[5] == player1 && grid[8] == player1 && grid[2] != player2 && grid[randomGridNum] != player1){
             return 2;
         }
-        else if(grid[2] == player1 && grid[8] == player1 && grid[5] != player2){
+        else if(grid[2] == player1 && grid[8] == player1 && grid[5] != player2 && grid[randomGridNum] != player1){
             return 5;
         }
-        else if(grid[0] == player1 && grid[4] == player1 && grid[8] != player2){
+        else if(grid[0] == player1 && grid[4] == player1 && grid[8] != player2 && grid[randomGridNum] != player1){
             return 8;
         }
-        else if(grid[4] == player1 && grid[8] == player1 && grid[0] != player2){
+        else if(grid[4] == player1 && grid[8] == player1 && grid[0] != player2 && grid[randomGridNum] != player1){
             return 0;
         }
-        else if(grid[0] == player1 && grid[8] == player1 && grid[4] != player2){
+        else if(grid[0] == player1 && grid[8] == player1 && grid[4] != player2 && grid[randomGridNum] != player1){
             return 4;
         }
-        else if(grid[2] == player1 && grid[4] == player1 && grid[6] != player2){
+        else if(grid[2] == player1 && grid[4] == player1 && grid[6] != player2 && grid[randomGridNum] != player1){
             return 6;
         }
-        else if(grid[2] == player1 && grid[6] == player1 && grid[4] != player2){
+        else if(grid[2] == player1 && grid[6] == player1 && grid[4] != player2 && grid[randomGridNum] != player1){
             return 4;
         }
-        else if(grid[4] == player1 && grid[6] == player1 && grid[2] != player2){
+        else if(grid[4] == player1 && grid[6] == player1 && grid[2] != player2 && grid[randomGridNum] != player1){
             return 2;
         }
         else{
 
-            notChosen = true;
+            bool notChosen = true;
             while(notChosen){
 
                 srand(time(NULL));
-                randomGridNum = rand()%10;
+                int randomGridNum = rand()%10;
 
                 if(grid[randomGridNum] != player1 && grid[randomGridNum] != player2){
 
@@ -123,7 +121,7 @@ int getAiGrid(){
     }    
 }
 
-int checkWinner(){
+static int checkWinner(){
 
     if(grid[0] == player1 && grid[1] == player1 && grid[2] == player1){
         return 1;
@@ -181,7 +179,7 @@ int checkWinner(){
     }
 }
 
-void updateDisplay(char player1, char player2){
+static void updateDisplay(char player1, char player2){
 
     system("cls");
 
@@ -212,6 +210,8 @@ int main(){
 
     bool game = true, newGame = true, ending = true;
     int menu, playerChoice, currentPlayer = 0, gridNumber, playAgain;
+
+    system("cls");
 
     while(newGame){
 
@@ -468,9 +468,7 @@ int main(){
                             system("cls");
                         }
                         else if(playAgain == 2){
-                            ending = false;
-                            game = false;
-                            newGame = false;
+                            return 0;
                         }
                         else{
                             cout<<"Invalid option!"<<endl;
